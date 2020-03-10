@@ -7,7 +7,7 @@
     "dev:start": "npm-run-all startdev",
     "dev": "nodemon --watch src -e js --exec npm run dev:start",
     "startdev": "node --inspect .",
-    "start": "node",
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
