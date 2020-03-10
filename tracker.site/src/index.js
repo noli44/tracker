@@ -1,7 +1,7 @@
 const express = require("express");
 const moment = require("moment");
 const app = express();
-const port = 8080; // default port to listen
+const port = process.env.PORT || 8080; // default port to listen
 const fs = require('fs');
 
 startupTask = () => {
