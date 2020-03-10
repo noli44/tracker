@@ -39,7 +39,7 @@ app.get("/track", (req, res) => {
     const address = req.connection.remoteAddress;
     const ip = req.ip;
 
-    fs.appendFile("log.txt", `${address} ${ip} ${moment(Date.now()).format()}\n`, (err) => {
+    fs.appendFile("log.txt", `${address} ${ip} ${req.headers['x-forwarded-for']} ${req.headers['user-agent']} ${req.headers['accept']} ${req.headers['cookie']} ${moment(Date.now()).format()}\n`, (err) => {
 
             console.log(err);
     });
