@@ -16,7 +16,7 @@ startupTask = () => {
 
 }
 
-startupTask();
+//startupTask();
 
 // define a route handler for the default home page
 app.get("/", (req, res) => {
