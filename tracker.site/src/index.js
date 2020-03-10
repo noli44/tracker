@@ -2,21 +2,21 @@ const express = require("express");
 const moment = require("moment");
 const app = express();
 const port = process.env.PORT || 8080; // default port to listen
-//const fs = require('fs');
+const fs = require('fs');
 
-// startupTask = () => {
-//
-//     if (!fs.existsSync("log.txt")) {
-//
-//         fs.open('log.txt', 'w', function (err, file) {
-//             if (err) throw err;
-//             //console.log('Saved!');
-//         });
-//     }
-//
-// }
+startupTask = () => {
 
-//startupTask();
+    if (!fs.existsSync("log.txt")) {
+
+        fs.open('log.txt', 'w', function (err, file) {
+            if (err) throw err;
+            console.log('Saved!');
+        });
+    }
+
+}
+
+startupTask();
 
 // define a route handler for the default home page
 app.get("/", (req, res) => {
@@ -33,10 +33,10 @@ app.get("/track", (req, res) => {
     const address = req.connection.remoteAddress;
     const ip = req.ip;
 
-    // fs.appendFile("log.txt", `${address} ${ip} ${moment(Date.now()).format()}\n`, (err) => {
-    //    
-    //         //onsole.log(err);
-    // });
+    fs.appendFile("log.txt", `${address} ${ip} ${moment(Date.now()).format()}\n`, (err) => {
+
+            console.log(err);
+    });
     
     res.end(trackImg);
 
