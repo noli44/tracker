@@ -20,7 +20,13 @@ startupTask();
 
 // define a route handler for the default home page
 app.get("/", (req, res) => {
-    res.send("Hello world!");
+
+    fs.readFile('log.txt', function(err, data) {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.write(data);
+        res.end();
+    });
+    
 });
 
 const trackImg = new Buffer("R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7", "base64");
